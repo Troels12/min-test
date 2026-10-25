@@ -1,0 +1,2 @@
+# min-test
+ test
