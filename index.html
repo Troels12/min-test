@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="da">
+<head><meta charset="utf-8"><title>Min første side</title></head>
+<body>
+  <h1>Vejret lige nu</h1>
+  <p id="vejr">Henter data...</p>
+  <script>
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=55.68&longitude=12.57&current=temperature_2m,wind_speed_10m")
+      .then(svar => svar.json())
+      .then(data => {
+        document.getElementById("vejr").textContent =
+          data.current.temperature_2m + " °C, vind " + data.current.wind_speed_10m + " km/t";
+      });
+  </script>
+</body>
+</html>
